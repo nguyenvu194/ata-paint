@@ -1,0 +1,74 @@
+// ATA Paint E-Commerce — Prisma Schema
+// Database: SQLite (file:./dev.db)
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  image       String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  products    Product[]
+}
+
+model Product {
+  id                String      @id @default(cuid())
+  name              String
+  slug              String      @unique
+  price             Int         // Price in VND (no decimals)
+  description       String      // Short description
+  detailDescription String      // Full description for detail page
+  image             String      // Primary image URL
+  images            String      // JSON string array of gallery URLs
+  weight            String      // e.g., "5kg"
+  coverage          String      // e.g., "10-12 m²/lít"
+  dryTime           String      // e.g., "2-4 giờ"
+  finish            String      // e.g., "Bóng mờ"
+  inStock           Boolean     @default(true)
+  tags              String      // JSON string array of tags
+  categoryId        String
+  category          Category    @relation(fields: [categoryId], references: [id])
+  orderItems        OrderItem[]
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  @@index([categoryId])
+  @@index([slug])
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  customerName    String
+  customerPhone   String
+  customerEmail   String?
+  customerAddress String
+  note            String?
+  status          String      @default("pending") // pending | confirmed | shipping | delivered | cancelled
+  totalAmount     Int         // Total in VND
+  items           OrderItem[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  quantity  Int
+  unitPrice Int     // Price snapshot at order time
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@index([orderId])
+  @@index([productId])
+}

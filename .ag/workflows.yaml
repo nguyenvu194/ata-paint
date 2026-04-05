@@ -1,0 +1,20 @@
+workflows:
+  specify:
+    description: "Tạo đặc tả hệ thống từ yêu cầu thô"
+    steps:
+      - agent: Architect
+        action: generate_spec
+        output: "specs/system.spec.md"
+  decompose:
+    description: "Phân rã Spec thành các User Stories"
+    steps:
+      - agent: BusinessAnalyst
+        action: create_user_stories
+        input: "specs/system.spec.md"
+        output: "user-stories/"
+  implement:
+    description: "Thực thi code dựa trên User Story đã duyệt"
+    steps:
+      - agent: Developer
+        action: code_from_story
+        input: "user-stories/{id}.md"
