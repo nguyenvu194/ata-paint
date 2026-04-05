@@ -33,3 +33,6 @@ server/prisma/dev.db-journal
 
 # Logs
 npm-debug.log*
+
+# Deploy docs
+docs/nginx_deploy_guide.md
