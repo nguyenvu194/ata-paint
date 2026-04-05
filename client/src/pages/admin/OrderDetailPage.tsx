@@ -16,11 +16,8 @@ import {
 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import type { Order } from "../../types";
-import { fetchOrderById } from "../../utils/api";
+import { fetchOrderById, updateOrderStatus } from "../../utils/api";
 import { formatPrice, formatDate, getStatusLabel, getStatusColor } from "../../utils/format";
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:3001/api";
 
 // Status transitions — which next statuses are valid from each current status
 const STATUS_TRANSITIONS: Record<string, { status: string; label: string; icon: typeof CheckCircle; color: string }[]> = {
@@ -76,16 +73,7 @@ export default function OrderDetailPage() {
     setOrder({ ...order, status: newStatus as Order["status"] });
 
     try {
-      const res = await fetch(`${API_BASE_URL}/orders/${id}/status`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: newStatus }),
-      });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || `HTTP ${res.status}`);
-      }
-      const updated = await res.json();
+      const updated = await updateOrderStatus(id, newStatus);
       setOrder(updated);
     } catch (err) {
       // Rollback

@@ -7,11 +7,9 @@ import {
 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import type { Product } from "../../types";
-import { fetchProducts } from "../../utils/api";
+import { fetchProducts, updateProductStock } from "../../utils/api";
 import { formatPrice, formatDate } from "../../utils/format";
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:3001/api";
 
 export default function ProductListPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -46,15 +44,7 @@ export default function ProductListPage() {
     );
 
     try {
-      const res = await fetch(`${API_BASE_URL}/products/${product.id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ inStock: newStock }),
-      });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || `HTTP ${res.status}`);
-      }
+      await updateProductStock(product.id, newStock);
     } catch (err) {
       // Rollback
       setProducts((prev) =>

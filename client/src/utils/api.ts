@@ -57,3 +57,25 @@ export function fetchOrders(): Promise<Order[]> {
 export function fetchOrderById(id: string): Promise<Order> {
   return apiFetch<Order>(`/orders/${id}`);
 }
+
+export function updateOrderStatus(
+  id: string,
+  status: string
+): Promise<Order> {
+  return apiFetch<Order>(`/orders/${id}/status`, {
+    method: "PATCH",
+    body: JSON.stringify({ status }),
+  });
+}
+
+// ---- Product Admin ----
+
+export function updateProductStock(
+  id: string,
+  inStock: boolean
+): Promise<Product> {
+  return apiFetch<Product>(`/products/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify({ inStock }),
+  });
+}
