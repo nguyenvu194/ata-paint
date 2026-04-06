@@ -3,15 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="theme-color" content="#1e3a5f" />
+
+    <!-- SEO: Title & Description -->
+    <title>Sơn ATA — Sơn Công Nghiệp & Trang Trí Chất Lượng Cao | ATA Paint Việt Nam</title>
+    <meta name="description" content="ATA Paint — Chuyên cung cấp sơn công nghiệp chất lượng cao: sơn chống rỉ, sơn epoxy, sơn chịu nhiệt, sơn kẽm. Bền màu 10+ năm, chống thấm tối ưu, an toàn sức khỏe. Giao hàng toàn quốc." />
+
+    <!-- SEO: Canonical -->
+    <link rel="canonical" href="https://atapaint.com/" />
+
+    <!-- SEO: Open Graph (Facebook, Zalo) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:site_name" content="Sơn ATA" />
+    <meta property="og:title" content="Sơn ATA — Sơn Công Nghiệp & Trang Trí Chất Lượng Cao" />
+    <meta property="og:description" content="Giải pháp sơn toàn diện cho công trình công nghiệp và dân dụng. Bảo vệ bề mặt, nâng tầm thẩm mỹ cho mọi không gian sống." />
+    <meta property="og:url" content="https://atapaint.com/" />
+    <meta property="og:image" content="https://atapaint.com/images/hero-bg.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sơn ATA — Sơn Công Nghiệp Chất Lượng Cao" />
+    <meta name="twitter:description" content="Giải pháp sơn toàn diện cho công trình công nghiệp và dân dụng. Bảo vệ bề mặt, nâng tầm thẩm mỹ." />
+    <meta name="twitter:image" content="https://atapaint.com/images/hero-bg.png" />
+
+    <!-- SEO: Additional Meta -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="ATA Paint Việt Nam" />
+    <meta name="keywords" content="sơn công nghiệp, sơn chống rỉ, sơn epoxy, sơn chịu nhiệt, sơn kẽm, ATA Paint, sơn trang trí, sơn nhà, sơn chất lượng cao" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <title>Sơn ATA</title>
+
+    <!-- SEO: JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sơn ATA",
+      "alternateName": "ATA Paint Việt Nam",
+      "url": "https://atapaint.com",
+      "logo": "https://atapaint.com/favicon.svg",
+      "description": "Chuyên cung cấp các dòng sơn công nghiệp và trang trí chất lượng cao cho mọi công trình.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Biên Hòa",
+        "addressRegion": "Đồng Nai",
+        "addressCountry": "VN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+84-1900-xxxx-xx",
+        "contactType": "customer service",
+        "availableLanguage": "Vietnamese"
+      },
+      "sameAs": []
+    }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- SEO: Noscript fallback for crawlers -->
+      <noscript>
+        <h1>Sơn ATA — Sơn Công Nghiệp & Trang Trí Chất Lượng Cao</h1>
+        <p>ATA Paint — Chuyên cung cấp sơn công nghiệp chất lượng cao: sơn chống rỉ, sơn epoxy, sơn chịu nhiệt, sơn kẽm. Bền màu 10+ năm, chống thấm tối ưu, an toàn sức khỏe. Giao hàng toàn quốc.</p>
+        <nav>
+          <a href="/">Trang chủ</a> |
+          <a href="/products">Sản phẩm</a> |
+          <a href="/cart">Giỏ hàng</a>
+        </nav>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

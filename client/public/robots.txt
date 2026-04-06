@@ -1,0 +1,9 @@
+# ATA Paint — Robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /cart
+Disallow: /order-success/
+
+# Sitemap
+Sitemap: https://atapaint.com/sitemap.xml
