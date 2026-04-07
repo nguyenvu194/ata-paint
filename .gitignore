@@ -36,3 +36,9 @@ npm-debug.log*
 
 # Deploy docs
 docs/nginx_deploy_guide.md
+
+# Proposal & estimation docs
+requirements/de_an.md
+requirements/GIKGOLD ECOSYSTEM - Phase 1 - Proposal & Estimation.xlsx
+requirements/AI_GE_Optimization.md
+requirements/SEO&AI_GE_demo_guide.md

@@ -16,6 +16,8 @@ import { fetchProductBySlug } from "../utils/api";
 import { formatPrice } from "../utils/format";
 import { useCart } from "../context/CartContext";
 import QuantitySelector from "../components/QuantitySelector";
+import ProductSchema from "../components/ProductSchema";
+import FAQSchema, { ATA_PAINT_FAQS } from "../components/FAQSchema";
 
 export default function ProductDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -137,7 +139,20 @@ export default function ProductDetailPage() {
       <Helmet>
         <title>{product.name} — Sơn ATA</title>
         <meta name="description" content={product.description} />
+        {/* AIO: Entity tags for AI/LLM context */}
+        <meta property="og:type" content="product" />
+        <meta property="product:brand" content="ATA Paint" />
+        <meta property="product:condition" content="new" />
+        <meta property="product:price:amount" content={String(product.price)} />
+        <meta property="product:price:currency" content="VND" />
+        <meta property="product:availability" content={product.inStock ? "in stock" : "out of stock"} />
+        {/* AIO: Entity identification for construction/paint industry */}
+        <meta name="subject" content={`${product.name} - Sơn công nghiệp ATA Paint`} />
+        <meta name="classification" content="Vật liệu xây dựng > Sơn phủ > Sơn công nghiệp" />
+        <meta name="industry" content="construction, paint, coatings, building materials" />
       </Helmet>
+      {/* AIO: Dynamic Product JSON-LD Schema */}
+      <ProductSchema product={product} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
         {/* ── Breadcrumb ── */}
@@ -262,10 +277,10 @@ export default function ProductDetailPage() {
               </div>
             )}
 
-            {/* Specs table */}
+            {/* Specs table — Question-based H2 for AIO/Voice Search */}
             <div className="bg-surface-50 rounded-xl border border-surface-200 overflow-hidden mb-6">
               <h2 className="text-sm font-semibold text-surface-700 px-4 py-3 bg-surface-100 border-b border-surface-200">
-                Thông số kỹ thuật
+                Thông số kỹ thuật của {product.name} là gì?
               </h2>
               <table className="w-full text-sm">
                 <tbody>
@@ -324,6 +339,13 @@ export default function ProductDetailPage() {
             </div>
           </div>
         </div>
+
+        {/* ── AIO: FAQ Section with JSON-LD ── */}
+        <FAQSchema
+          items={ATA_PAINT_FAQS}
+          title="Câu hỏi thường gặp về sơn ATA"
+          className="mt-12 border-t border-surface-200"
+        />
       </div>
     </>
   );

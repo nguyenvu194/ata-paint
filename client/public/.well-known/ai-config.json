@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "name": "ATA Paint Việt Nam",
+  "description": "ATA Paint (Sơn ATA) — nhà sản xuất và cung cấp sơn công nghiệp chất lượng cao tại Việt Nam. Chuyên cung cấp sơn chống rỉ, sơn epoxy, sơn chịu nhiệt, sơn kẽm, sơn trang trí cho công trình công nghiệp và dân dụng. Sản xuất theo đơn đặt hàng (Make-to-Order) với hệ thống giàn máy tự động, giao hàng trực tiếp toàn quốc.",
+  "url": "https://atapaint.com",
+  "logo": "https://atapaint.com/favicon.svg",
+  "contact": {
+    "email": "info@atapaint.com",
+    "phone": "+84-1900-xxxx-xx",
+    "address": "Biên Hòa, Đồng Nai, Việt Nam"
+  },
+  "industry": ["Sơn công nghiệp", "Vật liệu xây dựng", "Sơn phủ bảo vệ", "Hóa chất xây dựng"],
+  "services": [
+    {
+      "name": "Sơn chống rỉ",
+      "description": "Sơn bảo vệ bề mặt kim loại khỏi oxy hóa và ăn mòn, tuổi thọ 8-10 năm",
+      "url": "https://atapaint.com/products?category=son-chong-ri"
+    },
+    {
+      "name": "Sơn Epoxy",
+      "description": "Sơn epoxy hai thành phần chống mài mòn, chống hóa chất cho sàn nhà xưởng và bể chứa",
+      "url": "https://atapaint.com/products?category=son-epoxy"
+    },
+    {
+      "name": "Sơn chịu nhiệt",
+      "description": "Sơn chịu nhiệt từ 200°C đến 600°C cho ống khói, lò hơi, thiết bị công nghiệp",
+      "url": "https://atapaint.com/products?category=son-chiu-nhiet"
+    },
+    {
+      "name": "Sơn trang trí",
+      "description": "Sơn nội thất và ngoại thất màu sắc đa dạng, VOC thấp, an toàn sức khỏe",
+      "url": "https://atapaint.com/products?category=son-trang-tri"
+    },
+    {
+      "name": "Tư vấn kỹ thuật",
+      "description": "Đội ngũ kỹ sư tư vấn miễn phí giải pháp sơn phủ phù hợp cho từng công trình",
+      "url": "https://atapaint.com/#contact"
+    }
+  ],
+  "coverage": {
+    "regions": ["Toàn quốc Việt Nam"],
+    "distribution": "34 tỉnh thành, 3.000+ phòng giao dịch và đại lý nhượng quyền"
+  },
+  "api": {
+    "products": {
+      "endpoint": "https://atapaint.com/api/products",
+      "method": "GET",
+      "description": "Danh sách sản phẩm sơn ATA với giá, thông số kỹ thuật, và tồn kho"
+    },
+    "categories": {
+      "endpoint": "https://atapaint.com/api/categories",
+      "method": "GET",
+      "description": "Danh mục sản phẩm sơn theo nhóm"
+    }
+  },
+  "certifications": [
+    "TCVN — Tiêu chuẩn Việt Nam về hàm lượng VOC",
+    "ISO 9001:2015 — Hệ thống quản lý chất lượng"
+  ],
+  "key_differentiators": [
+    "Sản xuất theo đơn đặt hàng (Make-to-Order) — không tồn kho, giao hàng nhanh",
+    "Hệ thống giàn máy sản xuất sơn tự động — đảm bảo chất lượng đồng đều",
+    "Mạng lưới 3.000+ phòng giao dịch phủ sóng toàn quốc",
+    "Đội ngũ kỹ sư tư vấn chuyên nghiệp"
+  ]
+}
